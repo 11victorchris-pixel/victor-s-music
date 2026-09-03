@@ -1,0 +1,164 @@
+/* ==========================================================================
+   VICTOR'S MUSIC — responsive.css
+   Mobile-first hardening layer loaded AFTER style.css + components.css.
+   Fixes genuinely weak spots on touch devices, small phones and tablets:
+
+   • hover-revealed product actions are unusable on touch → show always
+   • desktop nav crowds small laptops → collapse to burger earlier
+   • 320–375px phones: brand + 4 icon buttons overflow the header
+   • iOS zooms when focusing inputs smaller than 16px
+   • fixed drawers need safe-area padding on notched phones
+   • tighter gutters / spacing / tap targets on small screens
+   ========================================================================== */
+
+/* harden against tiny horizontal pans */
+html{overflow-x:hidden}
+a,button,.icon-btn{-webkit-tap-highlight-color:transparent}
+
+/* ---------- Touch devices: product-card actions ---------- */
+/* Cards reveal wishlist/quick-view only on hover — tablets & phones can't
+   hover, so always show the action buttons on any coarse-pointer device. */
+@media (hover:none),(pointer:coarse){
+  .pc-actions{opacity:1;transform:none}
+  .prod-card:hover{transform:none}
+}
+
+/* ---------- Nav: collapse earlier + tiny-phone density ---------- */
+/* Between ~981px and 1100px the 8-link nav gets cramped → use the burger. */
+@media (max-width:1100px){
+  .main-nav{display:none}
+  .burger{display:inline-flex}
+}
+/* Sub-375px: brand mark + subtitle + 4 icon buttons can overflow. */
+@media (max-width:400px){
+  .nav-row{gap:10px;height:66px;padding-left:14px;padding-right:14px}
+}
+@media (max-width:370px){
+  .brand{gap:8px}
+  .brand .mark{width:36px;height:36px;border-radius:10px}
+  .brand .mark .ic{width:19px;height:19px}
+  .brand .name{font-size:.92rem}
+  .brand .name span{display:none} /* subtitle saves ~60px */
+  .icon-btn{width:36px;height:36px}
+  .icon-btn .ic{width:18px;height:18px}
+  .nav-cta{gap:0}
+}
+
+/* ---------- Topbar on tiny phones ---------- */
+@media (max-width:420px){
+  .topbar .page-wrap{height:auto;min-height:34px;padding:5px 12px}
+  .topbar .msg{white-space:normal;text-align:center;justify-content:center;line-height:1.25;gap:6px}
+}
+
+/* ---------- Fluid gutters & vertical rhythm ---------- */
+@media (max-width:640px){
+  .page-wrap,.wrap-wide{padding-left:16px;padding-right:16px}
+  .section{padding:40px 0}
+  .section-tight{padding:26px 0}
+  .page-hero{padding:36px 0 40px}
+  .vibe-hero{padding:40px 0}
+}
+@media (max-width:380px){
+  .page-wrap,.wrap-wide{padding-left:12px;padding-right:12px}
+}
+
+/* ---------- iOS: prevent auto-zoom on input focus ---------- */
+@media (max-width:767px){
+  input,select,textarea{font-size:16px!important}
+}
+
+/* ---------- Cart drawer on small phones ---------- */
+@media (max-width:420px){
+  .drawer-foot .df-actions{grid-template-columns:1fr}
+  .drawer-foot .df-actions .btn{width:100%}
+  .drawer{width:100vw;max-width:none}
+  .drawer-head{padding:14px 16px}
+  .drawer-foot{padding:14px 16px calc(14px + env(safe-area-inset-bottom))}
+  .drawer-body{padding:8px 14px}
+}
+@media (pointer:coarse){
+  .qty button{width:34px;height:34px}
+}
+
+/* ---------- Mobile menu panel ---------- */
+@media (max-width:420px){
+  .mobile-nav .panel{width:100vw;max-width:none}
+  .mobile-nav .panel-foot{padding:12px 18px calc(12px + env(safe-area-inset-bottom))}
+  .mobile-nav .panel-body{padding-bottom:calc(26px + env(safe-area-inset-bottom))}
+}
+.mobile-nav .panel{height:100%;height:100dvh}
+
+/* ---------- Search overlay ---------- */
+@media (max-width:480px){
+  .search-layer{padding:2vh 10px 0}
+  .search-form{gap:8px;padding-left:12px}
+  .search-form input{font-size:1rem;padding:14px 0}
+  .search-sugg{padding:12px 12px 16px}
+}
+
+/* ---------- Home hero: declutter on small phones ---------- */
+@media (max-width:560px){
+  .hero .float-card{display:none}
+  .hero .grid{padding:44px 0 54px}
+  .hero .stats{gap:22px;margin-top:28px}
+  .hero .cta-row .btn{flex:1 1 auto;justify-content:center}
+  .hero .cta-row{display:grid;grid-template-columns:1fr 1fr}
+  .hero .cta-row .btn{padding:13px 10px;font-size:.86rem;white-space:normal}
+}
+@media (max-width:380px){
+  .hero .cta-row{grid-template-columns:1fr}
+}
+
+/* ---------- Section headers / grids spacing ---------- */
+@media (max-width:640px){
+  .sec-head{margin-bottom:20px}
+  .h-scroll{padding-bottom:14px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+  .prod-grid{gap:12px}
+}
+
+/* ---------- Product detail tweaks ---------- */
+@media (max-width:400px){
+  .pd-thumbs button{width:66px;height:66px}
+  .pd-main-img{aspect-ratio:1/0.9}
+  .pd-qty-row{flex-wrap:wrap;gap:10px}
+  .bundle-items .bi{min-width:0;width:100%}
+  .bundle-items .plus{display:none}
+  .bundle-card{padding:16px}
+}
+/* narrow spec table first column */
+@media (max-width:560px){
+  .spec-table td{padding:10px 4px 10px 0}
+  .spec-table tr td:first-child{width:auto;min-width:112px;padding-right:10px}
+  .spec-table{display:block;overflow-x:auto}
+}
+
+/* ---------- Panels & forms on small screens ---------- */
+@media (max-width:560px){
+  .panel{padding:18px 15px}
+  .ck-step{padding:20px 16px}
+  .summary-card{padding:20px 16px}
+  .cart-table .ct-row{padding:14px}
+  .cart-table .ct-head{padding:14px 14px 0}
+  .ct-price .was{display:block;margin-left:0}
+  .deal-band{padding:30px 22px;gap:18px}
+  .footer-news .news-form{flex-direction:column}
+  .footer-news .news-form button{width:100%}
+}
+@media (max-width:400px){
+  .contact-card{flex-direction:column}
+  .check-row{font-size:.85rem}
+  .pay-tab{min-width:0;flex:1 1 44%}
+}
+
+/* ---------- Anchored sections clear the sticky header ---------- */
+[id]{scroll-margin-top:96px}
+
+/* ---------- Respect landscape phones ---------- */
+@media (max-height:480px) and (orientation:landscape){
+  .mobile-nav .panel-head{padding:10px 16px}
+  .mobile-nav .panel-body{padding-top:4px}
+  .mobile-nav .group-title{margin-top:10px}
+  .drawer-head{padding:10px 16px}
+  .search-layer{padding-top:4vh}
+  .modal{max-height:92vh}
+}

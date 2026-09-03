@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact Us — Victor's Music</title>
+<meta name="description" content="Talk to the Victor's Music team — sales advice, orders, delivery and support.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="contact">
+<a class="skip-link" href="#vmMain">Skip to content</a>
+<div class="topbar" id="vmTopbar"></div>
+<header class="site-header" id="vmHeader"></header>
+
+<main id="vmMain">
+  <section class="page-hero">
+    <div class="page-wrap">
+      <div class="crumbs"><a href="index.html">Home</a><svg class="ic" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6"/></svg><span class="here">Contact</span></div>
+      <h1>Contact Us</h1>
+      <p class="lead">Questions about gear, orders or delivery? Our team of musicians replies fast — usually within a few hours on weekdays.</p>
+    </div>
+    <div class="hero-deco"></div>
+  </section>
+
+  <div class="page-wrap">
+    <div class="contact-layout">
+      <div>
+        <div class="contact-cards">
+          <div class="contact-card"><span class="cc-ic"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><span><b>Call us</b><a href="tel:+2348012345678">+234 801 234 5678</a><small>Mon–Sat, 9am–8pm</small></span></div>
+          <div class="contact-card"><span class="cc-ic"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7l8 6 8-6"/></svg></span><span><b>Email us</b><a href="mailto:hello@victorsmusic.ng">hello@victorsmusic.ng</a><small>orders@victorsmusic.ng</small></span></div>
+          <div class="contact-card"><span class="cc-ic"><svg class="ic" viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span><b>Visit the store</b><a href="#">22 Rhythm Avenue, Ikeja, Lagos</a><small>Showroom &amp; service centre</small></span></div>
+          <div class="contact-card"><span class="cc-ic"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 7v5l3.5 2"/></svg></span><span><b>Opening hours</b><a href="#">Mon – Sat: 9am – 8pm</a><small>Sunday: 12pm – 6pm</small></span></div>
+        </div>
+
+        <div class="panel">
+          <h3 class="panel-title">📨 Send us a message</h3>
+          <form id="contactForm" novalidate style="margin-top:14px">
+            <div class="field-row">
+              <div class="field"><label for="cfName">Name <span class="req">*</span></label><input id="cfName" required placeholder="Your full name"></div>
+              <div class="field"><label for="cfEmail">Email <span class="req">*</span></label><input id="cfEmail" type="email" required placeholder="you@example.com"></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label for="cfPhone">Phone Number</label><input id="cfPhone" type="tel" placeholder="+234…"></div>
+              <div class="field"><label for="cfSubject">Subject <span class="req">*</span></label>
+                <select id="cfSubject" required>
+                  <option value="">Choose a topic…</option>
+                  <option>Product advice</option><option>Order &amp; delivery</option><option>Returns &amp; refunds</option><option>Warranty &amp; repairs</option><option>Wholesale / bulk order</option><option>Something else</option>
+                </select>
+              </div>
+            </div>
+            <div class="field"><label for="cfMsg">Message <span class="req">*</span></label><textarea id="cfMsg" required placeholder="Tell us how we can help…"></textarea></div>
+            <button class="btn" type="submit" style="min-width:200px">SEND MESSAGE</button>
+          </form>
+          <div class="panel" id="contactDone" style="display:none;text-align:center;border-color:var(--ok)">
+            <span style="font-size:2.2rem">✅</span>
+            <h3 style="margin:6px 0 4px">Message received, <span class="done-name"></span>!</h3>
+            <p class="muted" style="margin:0">Thanks for reaching out to Victor&rsquo;s Music. Our team will reply to you within 24 hours. In a hurry? Call <b>+234 801 234 5678</b>.</p>
+            <button class="btn btn-ghost btn-sm" type="button" style="margin-top:14px" onclick="document.getElementById('contactForm').style.display='';document.getElementById('contactDone').style.display='none'">Send another message</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel" style="margin-bottom:16px">
+          <h3 class="panel-title">🎧 Prefer to chat?</h3>
+          <p class="muted" style="font-size:.92rem">Message us on WhatsApp or any social channel and a real musician — not a bot — will answer.</p>
+          <div style="display:flex;gap:9px;flex-wrap:wrap">
+            <a class="btn btn-sm btn-ghost" href="#">💬 WhatsApp</a>
+            <a class="btn btn-sm btn-ghost" href="#">📸 Instagram</a>
+            <a class="btn btn-sm btn-ghost" href="#">🎵 TikTok</a>
+          </div>
+        </div>
+        <div class="panel">
+          <h3 class="panel-title">📍 Find us</h3>
+          <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line);height:240px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--muted);font-size:.9rem">
+            <span style="font-size:2.4rem">🗺️</span>
+            <b style="color:var(--ink)">Victor&rsquo;s Music Showroom</b>
+            <span>22 Rhythm Avenue, Ikeja, Lagos</span>
+            <span>Landmark: beside the old cinema plaza</span>
+          </div>
+        </div>
+        <div class="panel" style="margin-top:16px;background:linear-gradient(120deg,var(--brand-2),var(--brand));color:#fff;border:0">
+          <h3 style="color:#fff">🎁 Got gear to trade in?</h3>
+          <p style="color:rgba(255,255,255,.8);margin-bottom:14px">We buy and trade used instruments. Bring it to the store or send photos on WhatsApp for a free quote.</p>
+          <a class="btn" href="#" style="background:#fff;color:#0A1F44">Get a quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" id="vmFooter"></footer>
+<div id="vmOverlays"></div>
+
+<script src="js/data.js"></script>
+<script src="js/core.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/pages-home.js"></script>
+<script src="js/pages-catalog.js"></script>
+<script src="js/pages-product.js"></script>
+<script src="js/pages-cart.js"></script>
+<script src="js/pages-checkout.js"></script>
+<script src="js/pages-misc.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

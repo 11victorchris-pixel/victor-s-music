@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shop — Victor's Music</title>
+<meta name="description" content="Browse the full Victor's Music catalogue: guitars, drums, keyboards, microphones, speakers, headphones, studio equipment and accessories.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="shop">
+<script>
+/* pre-paint theme so vibe pages never flash the navy theme */
+(function(){try{var m=location.search.match(/[?&]vibe=([^&]+)/);var v=m?decodeURIComponent(m[1]):'';var b=document.body;if(!v||['premium','rock','savage','creative','professional','energetic'].indexOf(v)===-1){b.removeAttribute('data-theme');}else{b.setAttribute('data-theme',v);}}catch(e){}})();
+</script>
+<a class="skip-link" href="#vmMain">Skip to content</a>
+<div class="topbar" id="vmTopbar"></div>
+<header class="site-header" id="vmHeader"></header>
+
+<main id="vmMain">
+  <!-- hero is rewritten by JS when filters are active -->
+  <div class="page-hero" id="catHero">
+    <div class="page-wrap">
+      <div class="crumbs"><a href="index.html">Home</a><svg class="ic" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6"/></svg><span class="here">Shop</span></div>
+      <h1>Shop the Full Catalogue</h1>
+      <p class="lead">Every instrument, sound system, studio tool and accessory in the Victor&rsquo;s Music universe. Filter by category, music vibe, price, brand and rating — then find your sound.</p>
+      <div class="mini" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:18px">
+        <a class="chip" href="shop.html?vibe=premium">👑 Premium</a>
+        <a class="chip" href="shop.html?vibe=rock">🤘 Rock &amp; Roll</a>
+        <a class="chip" href="shop.html?vibe=savage">🔥 Savage</a>
+        <a class="chip" href="shop.html?vibe=creative">🎨 Creative</a>
+        <a class="chip" href="shop.html?vibe=professional">🎚️ Professional</a>
+        <a class="chip" href="shop.html?vibe=energetic">⚡ Energetic</a>
+        <a class="chip" href="sales.html">🏷️ On Sale</a>
+      </div>
+    </div>
+    <div class="hero-deco"></div>
+  </div>
+
+  <section class="page-wrap">
+    <div class="shop-layout">
+      <!-- ===== filters ===== -->
+      <aside class="shop-filters" id="filterPanel" aria-label="Product filters">
+        <div class="filters-inner">
+          <button class="icon-btn filter-close" data-close="filters" aria-label="Close filters"><svg class="ic" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg></button>
+
+          <div class="filter-card">
+            <h4>Category</h4>
+            <div class="fc-body">
+              <label class="check-row"><input type="checkbox" class="cat-type-check" value="guitars"><span>🎸 Guitars</span><span class="cnt">0</span></label>
+              <label class="check-row"><input type="checkbox" class="cat-type-check" value="drums"><span>🥁 Drums &amp; Percussion</span><span class="cnt">0</span></label>
+              <label class="check-row"><input type="checkbox" class="cat-type-check" value="keyboards"><span>🎹 Keyboards &amp; Pianos</span><span class="cnt">0</span></label>
+              <label class="check-row"><input type="checkbox" class="cat-type-check" value="microphones"><span>🎤 Microphones</span><span class="cnt">0</span></label>
+              <label class="check-row"><input type="checkbox" class="cat-type-check" value="speakers"><span>🔊 Speakers &amp; Sound</span><span class="cnt">0</span></label>
+              <label class="check-row"><input type="checkbox" class="cat-type-check" value="headphones"><span>🎧 Headphones</span><span class="cnt">0</span></label>
+              <label class="check-row"><input type="checkbox" class="cat-type-check" value="studio"><span>🎛️ Studio Equipment</span><span class="cnt">0</span></label>
+              <label class="check-row"><input type="checkbox" class="cat-type-check" value="accessories"><span>🔌 Accessories</span><span class="cnt">0</span></label>
+            </div>
+          </div>
+
+          <div class="filter-card">
+            <h4>Music Vibe</h4>
+            <div class="fc-body vibe-filter-list">
+              <button type="button" class="vibe-filter-item vibe-f-item" data-v="premium"><span class="vibe-dot dot-premium"></span>Premium<span class="cnt">0</span></button>
+              <button type="button" class="vibe-filter-item vibe-f-item" data-v="rock"><span class="vibe-dot dot-rock"></span>Rock &amp; Roll<span class="cnt">0</span></button>
+              <button type="button" class="vibe-filter-item vibe-f-item" data-v="savage"><span class="vibe-dot dot-savage"></span>Savage<span class="cnt">0</span></button>
+              <button type="button" class="vibe-filter-item vibe-f-item" data-v="creative"><span class="vibe-dot dot-creative"></span>Creative<span class="cnt">0</span></button>
+              <button type="button" class="vibe-filter-item vibe-f-item" data-v="professional"><span class="vibe-dot dot-professional"></span>Professional<span class="cnt">0</span></button>
+              <button type="button" class="vibe-filter-item vibe-f-item" data-v="energetic"><span class="vibe-dot dot-energetic"></span>Energetic<span class="cnt">0</span></button>
+            </div>
+          </div>
+
+          <div class="filter-card">
+            <h4>Price (₦)</h4>
+            <div class="price-opts fc-body" style="display:grid">
+              <button type="button" class="price-q on" data-min="0" data-max="0">All prices</button>
+              <button type="button" class="price-q" data-min="0" data-max="150000">Under ₦150k</button>
+              <button type="button" class="price-q" data-min="150000" data-max="500000">₦150k – ₦500k</button>
+              <button type="button" class="price-q" data-min="500000" data-max="0">Above ₦500k</button>
+            </div>
+            <div class="range-row" style="margin-top:12px">
+              <input type="number" id="fMin" placeholder="Min ₦" min="0" aria-label="Minimum price">
+              <span>–</span>
+              <input type="number" id="fMax" placeholder="Max ₦" min="0" aria-label="Maximum price">
+            </div>
+          </div>
+
+          <div class="filter-card">
+            <h4>Brand</h4>
+            <div class="fc-body">
+              <select id="fBrand" aria-label="Filter by brand"><option value="">All brands</option></select>
+            </div>
+          </div>
+
+          <div class="filter-card">
+            <h4>Rating</h4>
+            <div class="fc-body">
+              <label class="radio-pill"><input type="radio" name="fRate" value="0" checked> Any rating</label>
+              <label class="radio-pill"><input type="radio" name="fRate" value="4.5"> ★ 4.5 &amp; above</label>
+              <label class="radio-pill"><input type="radio" name="fRate" value="4"> ★ 4.0 &amp; above</label>
+            </div>
+          </div>
+
+          <div class="filter-card">
+            <h4>Availability</h4>
+            <div class="fc-body">
+              <label class="check-row"><input type="checkbox" id="fStock"><span>In stock only</span></label>
+            </div>
+          </div>
+
+          <button class="btn btn-ghost btn-sm filter-reset" id="fReset">Clear all filters</button>
+        </div>
+      </aside>
+
+      <!-- ===== results ===== -->
+      <div class="shop-main">
+        <div class="shop-toolbar">
+          <button class="btn btn-soft btn-sm mobile-filter-btn">☰ Filters</button>
+          <span class="res" id="catCount">Loading products…</span>
+          <span class="spacer"></span>
+          <label class="sort">Sort by
+            <select id="catSort" aria-label="Sort products">
+              <option value="popular">Most Popular</option>
+              <option value="newest">Newest</option>
+              <option value="plow">Price: Low to High</option>
+              <option value="phigh">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+            </select>
+            <svg class="ic" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+          </label>
+        </div>
+        <div class="active-chips" id="catActive"></div>
+        <div class="prod-grid" id="catGrid"></div>
+        <div style="display:flex;justify-content:center;padding:18px 0 30px">
+          <button class="btn btn-ghost" id="catMore" style="display:none">Load More Products</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="vmFooter"></footer>
+<div id="vmOverlays"></div>
+
+<script src="js/data.js"></script>
+<script src="js/core.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/pages-home.js"></script>
+<script src="js/pages-catalog.js"></script>
+<script src="js/pages-product.js"></script>
+<script src="js/pages-cart.js"></script>
+<script src="js/pages-checkout.js"></script>
+<script src="js/pages-misc.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>
