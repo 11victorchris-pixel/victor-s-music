@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — data.js
+   VIC MUSICAL STORE — data.js
    Product catalogue + site configuration. All prices in Nigerian Naira (₦).
    img = key into VM.IMGS  ("" or missing -> generated monogram cover)
    ========================================================================== */
@@ -9,22 +9,22 @@
 
   /* ---------- Music Vibe categories ---------- */
   VM.VIBES = [
-    { key: 'premium', name: 'PREMIUM', em: '\u{1F451}', title: 'Premium', tagline: 'Luxury Sound. Premium Experience.',
+    { key: 'premium', name: 'PREMIUM', ic: 'crown', title: 'Premium', tagline: 'Luxury Sound. Premium Experience.',
       desc: 'Hand-selected flagship instruments, high-end audio and studio-grade gear for those who accept nothing less than the very best.',
       stats: '120+ luxury picks' },
-    { key: 'rock', name: 'ROCK & ROLL', em: '\u{1F918}', title: 'Rock & Roll', tagline: 'Turn It Up. Feel The Energy.',
+    { key: 'rock', name: 'ROCK & ROLL', ic: 'rock', title: 'Rock & Roll', tagline: 'Turn It Up. Feel The Energy.',
       desc: 'Electric guitars, bass machines, roaring amps, full drum kits and everything loud. Built to be played hard and heard far.',
       stats: '150+ loud essentials' },
-    { key: 'savage', name: 'SAVAGE', em: '\u{1F525}', title: 'Savage', tagline: 'Power Without Limits.',
+    { key: 'savage', name: 'SAVAGE', ic: 'flame', title: 'Savage', tagline: 'Power Without Limits.',
       desc: 'Serious bass. Serious volume. DJ rigs, subwoofers, PA systems and electronic weapons engineered to shake the room.',
       stats: '90+ heavy hitters' },
-    { key: 'creative', name: 'CREATIVE', em: '\u{1F3A8}', title: 'Creative', tagline: 'Create Something Different.',
+    { key: 'creative', name: 'CREATIVE', ic: 'palette', title: 'Creative', tagline: 'Create Something Different.',
       desc: 'Synthesizers, MIDI controllers, production tools and colourful instruments for producers, beatmakers and sonic explorers.',
       stats: '130+ studio toys' },
-    { key: 'professional', name: 'PROFESSIONAL', em: '\u{1F39A}\uFE0F', title: 'Professional', tagline: 'Built For Serious Sound.',
+    { key: 'professional', name: 'PROFESSIONAL', ic: 'sliders', title: 'Professional', tagline: 'Built For Serious Sound.',
       desc: 'Studio microphones, interfaces, monitors and mixing consoles for recording studios, broadcasters and working engineers.',
       stats: '110+ pro tools' },
-    { key: 'energetic', name: 'ENERGETIC', em: '\u{26A1}', title: 'Energetic', tagline: 'Feel Every Beat.',
+    { key: 'energetic', name: 'ENERGETIC', ic: 'bolt', title: 'Energetic', tagline: 'Feel Every Beat.',
       desc: 'Portable speakers, party sound, wireless headphones and fun instruments — made for movement, parties and everyday music.',
       stats: '160+ party starters' }
   ];
@@ -32,14 +32,14 @@
 
   /* ---------- Shop by instrument ---------- */
   VM.TYPES = [
-    { key: 'guitars', name: 'Guitars', em: '\u{1F3B8}', blurb: 'Acoustic, electric, bass, classical & mini guitars', subs: ['Acoustic', 'Electric', 'Bass', 'Classical', 'Amps & Pedals'] },
-    { key: 'drums', name: 'Drums & Percussion', em: '\u{1F941}', blurb: 'Complete kits, electronic drums, snares, cymbals & percussion', subs: ['Drum Kits', 'Electronic Drums', 'Snares & Cymbals', 'Percussion'] },
-    { key: 'keyboards', name: 'Keyboards & Pianos', em: '\u{1F3B9}', blurb: 'Digital pianos, synths, MIDI keyboards & stage keys', subs: ['Digital Pianos', 'Synthesizers', 'MIDI Keyboards', 'Stage Keyboards'] },
-    { key: 'microphones', name: 'Microphones', em: '\u{1F3A4}', blurb: 'Studio, condenser, dynamic, wireless & podcast mics', subs: ['Studio', 'Condenser', 'Dynamic', 'Wireless', 'Podcast'] },
-    { key: 'speakers', name: 'Speakers & Sound', em: '\u{1F50A}', blurb: 'Bluetooth, party, PA, studio monitors & subwoofers', subs: ['Portable', 'Party', 'PA', 'Studio Monitors', 'Subwoofers'] },
-    { key: 'headphones', name: 'Headphones', em: '\u{1F3A7}', blurb: 'Studio, wireless, DJ & everyday headphones', subs: ['Studio', 'Wireless', 'DJ', 'Everyday'] },
-    { key: 'studio', name: 'Studio Equipment', em: '\u{1F39B}\uFE0F', blurb: 'Interfaces, mixers, controllers & recording gear', subs: ['Audio Interfaces', 'Mixing Consoles', 'Controllers', 'Recording'] },
-    { key: 'accessories', name: 'Accessories', em: '\u{1F50C}', blurb: 'Strings, cables, stands, sticks, cases & more', subs: ['Strings & Picks', 'Cables', 'Stands', 'Cases & Bags'] }
+    { key: 'guitars', name: 'Guitars', ic: 'guitar', blurb: 'Acoustic, electric, bass, classical & mini guitars', subs: ['Acoustic', 'Electric', 'Bass', 'Classical', 'Amps & Pedals'] },
+    { key: 'drums', name: 'Drums & Percussion', ic: 'drum', blurb: 'Complete kits, electronic drums, snares, cymbals & percussion', subs: ['Drum Kits', 'Electronic Drums', 'Snares & Cymbals', 'Percussion'] },
+    { key: 'keyboards', name: 'Keyboards & Pianos', ic: 'piano', blurb: 'Digital pianos, synths, MIDI keyboards & stage keys', subs: ['Digital Pianos', 'Synthesizers', 'MIDI Keyboards', 'Stage Keyboards'] },
+    { key: 'microphones', name: 'Microphones', ic: 'mic', blurb: 'Studio, condenser, dynamic, wireless & podcast mics', subs: ['Studio', 'Condenser', 'Dynamic', 'Wireless', 'Podcast'] },
+    { key: 'speakers', name: 'Speakers & Sound', ic: 'speaker', blurb: 'Bluetooth, party, PA, studio monitors & subwoofers', subs: ['Portable', 'Party', 'PA', 'Studio Monitors', 'Subwoofers'] },
+    { key: 'headphones', name: 'Headphones', ic: 'headphones', blurb: 'Studio, wireless, DJ & everyday headphones', subs: ['Studio', 'Wireless', 'DJ', 'Everyday'] },
+    { key: 'studio', name: 'Studio Equipment', ic: 'sliders', blurb: 'Interfaces, mixers, controllers & recording gear', subs: ['Audio Interfaces', 'Mixing Consoles', 'Controllers', 'Recording'] },
+    { key: 'accessories', name: 'Accessories', ic: 'plug', blurb: 'Strings, cables, stands, sticks, cases & more', subs: ['Strings & Picks', 'Cables', 'Stands', 'Cases & Bags'] }
   ];
 
   /* ---------- Image pools (Wikimedia Commons, thumbnail URLs) ----------
@@ -131,8 +131,8 @@
     /* scenes / banners */
     scn_pro: 'https://ai-public.mastergo.com/ai/img_res/e27c6d89054668ee8a7a074ec1b21b3b.jpg',
     scn_creative: 'https://cdn.wallpapersafari.com/89/11/iXl2vLq.jpg',
-    scn_rock: eg1,
-    scn_edm: sy4
+    scn_rock: '',
+    scn_edm: ''
   };
 
   /* ---------- Products ---------- */
@@ -280,18 +280,18 @@
     { q: 'Ordered a full drum kit on Monday, it was at my studio in Abuja by Wednesday. Packing was so careful even the cymbals survived the trip.', n: 'Chiamaka O.', c: 'Abuja', r: 5 },
     { q: 'Their microphone recommendations helped me upgrade my home studio properly without overspending. The VC-1 is a monster for the price.', n: 'Emeka N.', c: 'Port Harcourt', r: 5 },
     { q: 'Best music store experience I have had online. The category vibes are fun but the gear is serious. My PA system shakes the whole street now.', n: 'Dapo B.', c: 'Ibadan', r: 5 },
-    { q: 'I am a piano teacher and I buy all my keyboards from Victor\u2019s Music. Honest pricing, genuine products and quick delivery every single time.', n: 'Mrs. Adeyemi', c: 'Lagos', r: 4.5 },
+    { q: 'I am a piano teacher and I buy all my keyboards from Vic Musical Store. Honest pricing, genuine products and quick delivery every single time.', n: 'Mrs. Adeyemi', c: 'Lagos', r: 4.5 },
     { q: 'Customer service helped me choose between two synthesizers and even sent comparison videos. Got the Wave-2 — zero regrets.', n: 'Kelechi U.', c: 'Enugu', r: 5 }
   ];
 
   /* ---------- Review templates for product pages ---------- */
   VM.REVIEWS_POOL = [
     { n: 'David O.', c: 'Lagos', r: 5, t: 'Exceeded my expectations', b: 'Quality is top notch and it arrived well packaged. Delivery was faster than I expected and everything works perfectly.' },
-    { n: 'Sarah J.', c: 'Abuja', r: 5, t: 'Fantastic value', b: 'I compared prices across several stores and Victor\u2019s Music had the best deal. Sounds even better than the price suggests.' },
+    { n: 'Sarah J.', c: 'Abuja', r: 5, t: 'Fantastic value', b: 'I compared prices across several stores and Vic Musical Store had the best deal. Sounds even better than the price suggests.' },
     { n: 'Michael K.', c: 'Ibadan', r: 4, t: 'Great product', b: 'Very solid build and great sound. Took one star off only because I wish the manual was more detailed for beginners.' },
     { n: 'Amara C.', c: 'Port Harcourt', r: 5, t: 'Exactly as described', b: 'The photos and specs were accurate. It feels premium and my bandmates are impressed. Will definitely buy from here again.' },
     { n: 'Femi A.', c: 'Lagos', r: 4, t: 'Good buy overall', b: 'Works well for my needs. Delivery took a couple of days longer than expected but customer support kept me updated the whole time.' },
-    { n: 'Ngozi E.', c: 'Enugu', r: 5, t: 'Highly recommended', b: 'This is my third order from Victor\u2019s Music and they never disappoint. Genuine products and careful packaging every time.' }
+    { n: 'Ngozi E.', c: 'Enugu', r: 5, t: 'Highly recommended', b: 'This is my third order from Vic Musical Store and they never disappoint. Genuine products and careful packaging every time.' }
   ];
 
   /* ---------- Lookups ---------- */

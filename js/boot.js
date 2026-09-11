@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — boot.js
+   VIC MUSICAL STORE — boot.js
    Runs chrome + widgets + the page initialiser for <body data-page="…">.
    Every init is isolated so one failure never blanks the page.
    ========================================================================== */
@@ -13,9 +13,12 @@
     }
   }
 
-  function boot() {
+  function bootChrome() {
     safe('layout', function () { VM.bootLayout(); });
     safe('cards', function () { VM.cardsBoot(); });
+  }
+
+  function bootPageAndFx() {
     var page = (document.body && document.body.getAttribute('data-page')) || '';
     var fn = VM.pages && VM.pages[page];
     if (!fn && document.body) {
@@ -26,6 +29,19 @@
     /* reveal anything the page init rendered */
     safe('reveal', function () { VM.wireReveal(); });
     safe('scrollers', function () { VM.wireScrollers(); });
+  }
+
+  // Fast chrome paint, then live catalogue, then page content.
+  function boot() {
+    bootChrome();
+    var pageDone = false;
+    function pageOnce() { if (!pageDone) { pageDone = true; bootPageAndFx(); } }
+    try {
+      if (VM.api && VM.api.syncCatalogue) {
+        VM.api.syncCatalogue().then(pageOnce).catch(pageOnce);
+        setTimeout(pageOnce, 2500); // never leave content blank if API hangs
+      } else { pageOnce(); }
+    } catch (e) { pageOnce(); }
     /* cart badge sync when storage changes in other tabs */
     window.addEventListener('storage', function (e) {
       if (e.key === VM.CART_KEY || e.key === VM.WISH_KEY) {

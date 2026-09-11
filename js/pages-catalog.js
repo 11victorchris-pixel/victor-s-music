@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — pages-catalog.js
+   VIC MUSICAL STORE — pages-catalog.js
    Powers shop.html (all / type / vibe / search views), sales.html,
    new-arrivals.html and best-sellers.html.
    ========================================================================== */
@@ -217,10 +217,10 @@
       ? '<div class="vh-art"><img src="' + art + '" alt="' + VM.esc(vb.title) + ' collection" onerror="this.style.display=\'none\'"></div>'
       : '';
     var switchChips = VM.VIBES.map(function (v) {
-      return '<button class="chip' + (v.key === vb.key ? ' on' : '') + '" data-v="' + v.key + '">' + v.em + ' ' + v.title + '</button>';
+      return '<button class="chip' + (v.key === vb.key ? ' on' : '') + '" data-v="' + v.key + '">' + VM.icon(v.ic) + ' ' + v.title + '</button>';
     }).join('');
     return '<div class="page-wrap"><div class="vh-grid">' +
-      '<div><span class="vh-tag">' + vb.em + ' ' + vb.name + ' Vibe</span>' +
+      '<div><span class="vh-tag">' + VM.icon(vb.ic) + ' ' + vb.name + ' Vibe</span>' +
       '<h1>Shop the <span style="color:var(--accent)">' + VM.esc(vb.title) + '</span> Vibe</h1>' +
       '<p class="lead">' + VM.esc(vb.desc) + '</p>' +
       '<div class="vh-stats"><div><div class="n">' + VM.num(VM.productsByVibe(vb.key).length) + '+</div><div class="l">curated products</div></div>' +
@@ -231,7 +231,7 @@
 
   function plainHeroHtml() {
     var title = 'Shop Everything';
-    var lead = 'Browse the full Victor\u2019s Music catalogue \u2014 instruments, sound systems, studio gear and accessories for every musician and creator.';
+    var lead = 'Browse the full Vic Musical Store catalogue \u2014 instruments, sound systems, studio gear and accessories for every musician and creator.';
     var crumb = 'Home / Shop';
     var extra = '';
     if (state.type) {
@@ -274,22 +274,22 @@
     }
     var big = discounted.filter(function (p) { return VM.discountPct(p) >= 25; });
     var sections = [
-      { id: 'hot', em: '\u{1F525}', title: 'Hot Deals', sub: 'Our most-wanted gear, marked down now', list: hot.slice(0, 8), link: 'shop.html?sale=1' },
-      { id: 'flash', em: '\u26A1', title: 'Flash Sales', sub: 'Limited-time lightning prices \u2014 gone fast', list: flash.slice(0, 8), link: 'shop.html?sale=1' },
-      { id: 'big', em: '\u{1F4A5}', title: 'Big Discounts', sub: 'Up to 50% off across the catalogue', list: big.slice(0, 8), link: 'shop.html?sale=1' },
-      { id: 'guitar', em: '\u{1F3B8}', title: 'Guitar Sales', sub: 'Six strings on sale', list: discounted.filter(function (p) { return p.t === 'guitars'; }).slice(0, 8), link: 'shop.html?type=guitars&sale=1' },
-      { id: 'drum', em: '\u{1F941}', title: 'Drum Sales', sub: 'Kits, cymbals & percussion deals', list: discounted.filter(function (p) { return p.t === 'drums'; }).slice(0, 8), link: 'shop.html?type=drums&sale=1' },
-      { id: 'mic', em: '\u{1F3A4}', title: 'Microphone Deals', sub: 'Capture every take for less', list: discounted.filter(function (p) { return p.t === 'microphones'; }).slice(0, 8), link: 'shop.html?type=microphones&sale=1' },
-      { id: 'speaker', em: '\u{1F50A}', title: 'Speaker Deals', sub: 'Big sound, smaller price tags', list: discounted.filter(function (p) { return p.t === 'speakers'; }).slice(0, 8), link: 'shop.html?type=speakers&sale=1' },
-      { id: 'key', em: '\u{1F3B9}', title: 'Keyboard Deals', sub: 'Pianos & synths at key prices', list: discounted.filter(function (p) { return p.t === 'keyboards'; }).slice(0, 8), link: 'shop.html?type=keyboards&sale=1' }
+      { id: 'hot', ic: 'flame', title: 'Hot Deals', sub: 'Our most-wanted gear, marked down now', list: hot.slice(0, 8), link: 'shop.html?sale=1' },
+      { id: 'flash', ic: 'bolt', title: 'Flash Sales', sub: 'Limited-time lightning prices \u2014 gone fast', list: flash.slice(0, 8), link: 'shop.html?sale=1' },
+      { id: 'big', ic: 'sparkle', title: 'Big Discounts', sub: 'Up to 50% off across the catalogue', list: big.slice(0, 8), link: 'shop.html?sale=1' },
+      { id: 'guitar', ic: 'guitar', title: 'Guitar Sales', sub: 'Six strings on sale', list: discounted.filter(function (p) { return p.t === 'guitars'; }).slice(0, 8), link: 'shop.html?type=guitars&sale=1' },
+      { id: 'drum', ic: 'drum', title: 'Drum Sales', sub: 'Kits, cymbals & percussion deals', list: discounted.filter(function (p) { return p.t === 'drums'; }).slice(0, 8), link: 'shop.html?type=drums&sale=1' },
+      { id: 'mic', ic: 'mic', title: 'Microphone Deals', sub: 'Capture every take for less', list: discounted.filter(function (p) { return p.t === 'microphones'; }).slice(0, 8), link: 'shop.html?type=microphones&sale=1' },
+      { id: 'speaker', ic: 'speaker', title: 'Speaker Deals', sub: 'Big sound, smaller price tags', list: discounted.filter(function (p) { return p.t === 'speakers'; }).slice(0, 8), link: 'shop.html?type=speakers&sale=1' },
+      { id: 'key', ic: 'piano', title: 'Keyboard Deals', sub: 'Pianos & synths at key prices', list: discounted.filter(function (p) { return p.t === 'keyboards'; }).slice(0, 8), link: 'shop.html?type=keyboards&sale=1' }
     ];
     var nav = '<div class="anchor-nav page-wrap">' + sections.map(function (s) {
-      return '<a href="#sale-' + s.id + '">' + s.em + ' ' + s.title + '</a>';
+      return '<a href="#sale-' + s.id + '">' + VM.icon(s.ic) + ' ' + s.title + '</a>';
     }).join('') + '</div>';
     var html = nav + sections.map(function (s) {
       var cards = s.list.map(function (p) { return VM.cardHtml(p); }).join('');
       return '<section class="sale-sect" id="sale-' + s.id + '"><div class="page-wrap">' +
-        '<div class="ss-head"><span class="em">' + s.em + '</span><div><h2>' + s.title + '</h2>' +
+        '<div class="ss-head"><span class="em">' + VM.icon(s.ic) + '</span><div><h2>' + s.title + '</h2>' +
         '<p>' + s.sub + '</p></div><a class="btn btn-sm btn-ghost" style="margin-left:auto" href="' + s.link + '">View All</a></div>' +
         '<div class="prod-grid">' + cards + '</div></div></section>';
     }).join('');

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — cards.js
+   VIC MUSICAL STORE — cards.js
    Product cards, grid rendering, quick view, scrollers, countdown timer.
    ========================================================================== */
 (function () {
@@ -23,7 +23,7 @@
     var pct = VM.discountPct(p);
     if (p.tg) {
       if (p.tg.indexOf('new') !== -1) badges += '<span class="tag tag-new">New</span>';
-      if (p.tg.indexOf('best') !== -1) badges += '<span class="tag tag-best">\u{1F525} Best Seller</span>';
+      if (p.tg.indexOf('best') !== -1) badges += '<span class="tag tag-best">' + VM.icon('flame') + ' Best Seller</span>';
     }
     if (pct >= 5) badges += '<span class="tag tag-sale">-' + pct + '%</span>';
     var wishOn = VM.wish.has(p.id);

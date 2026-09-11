@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — pages-home.js
+   VIC MUSICAL STORE — pages-home.js
    Populates homepage sections.
    ========================================================================== */
 (function () {
@@ -18,10 +18,10 @@
       var veilClass = 'vc-veil';
       var img = artUrl
         ? '<img class="vc-bg" src="' + artUrl + '" alt="' + VM.esc(v.title) + '" loading="lazy" onerror="this.style.display=\'none\'">'
-        : '<div class="vc-bg" style="background:linear-gradient(160deg,#0A1F44,#06152E)"></div>';
+        : '<div class="vc-bg" style="background:linear-gradient(160deg,#D4AF37,#0B0B08)"></div>';
       return '<a class="vibe-card reveal" data-vibe="' + v.key + '" href="' + VM.vibeHref(v.key) + '" aria-label="Shop the ' + VM.esc(v.title) + ' vibe">' +
         img + '<div class="' + veilClass + '"></div>' +
-        '<div class="vc-in"><span class="vc-icon">' + v.em + '</span><div style="margin-top:auto">' +
+        '<div class="vc-in"><span class="vc-icon">' + VM.icon(v.ic) + '</span><div style="margin-top:auto">' +
         '<h3>' + v.title.toUpperCase() + '</h3>' +
         '<p>' + VM.esc(v.tagline) + '</p>' +
         '<span class="vc-go">Explore ' + v.title + ' ' + VM.icon('arrowR') + '</span></div></div></a>';
@@ -37,7 +37,7 @@
       var img = p && VM.imgSrc(p) ? VM.imgSrc(p) : (p ? VM.coverDataUri(p) : '');
       return '<a class="inst-tile reveal" href="' + VM.typeHref(t.key) + '">' +
         '<div class="it-img"><img src="' + img + '" alt="' + VM.esc(t.name) + '" loading="lazy" onerror="this.onerror=null;this.closest(\'.it-img\').style.background=\'var(--tint)\'">' +
-        '<span style="position:absolute;left:10px;bottom:8px;font-size:1.6rem;text-shadow:0 2px 8px rgba(0,0,0,.4)" aria-hidden="true">' + t.em + '</span></div>' +
+        '<span class="it-em" style="position:absolute;left:10px;bottom:8px;font-size:1.6rem;text-shadow:0 2px 8px rgba(0,0,0,.4)" aria-hidden="true">' + VM.icon(t.ic) + '</span></div>' +
         '<div class="it-body"><span><h3>' + t.name + '</h3>' +
         '<span class="count">' + VM.num(list.length) + ' products</span></span>' +
         '<span class="arrow">' + VM.icon('arrowR') + '</span></div></a>';

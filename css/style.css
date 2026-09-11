@@ -1,8 +1,8 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — style.css
+   JOHN MAJOR — style.css
    Design system, themes, layout, navigation, footer.
    Theme engine: <body data-theme="premium|rock|savage|creative|professional|energetic">
-   Default (no attribute / "navy") = Navy Blue + White.
+   Default (no attribute) = Gold + Black.
    ========================================================================== */
 
 /* ---------- Theme tokens ---------- */
@@ -10,33 +10,33 @@
   --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
   --font-head:'Outfit','Inter',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
 
-  /* default: navy + white */
+  /* default: gold + black */
   --page-bg:#FFFFFF;
-  --page-bg-2:#F5F7FA;
+  --page-bg-2:#FBF7ED;
   --surface:#FFFFFF;
-  --surface-2:#F2F6FC;
-  --ink:#0B1B33;
-  --muted:#5C6B85;
-  --line:#E4EAF3;
-  --brand:#0A1F44;          /* primary navy */
-  --brand-2:#06152E;        /* deep navy */
-  --on-brand:#FFFFFF;
-  --accent:#DCEBFF;         /* light blue accent */
-  --accent-2:#6D9EF0;
-  --on-accent:#0A1F44;
-  --tint:rgba(10,31,68,.06);
-  --tint-2:rgba(10,31,68,.10);
+  --surface-2:#F7F0E0;
+  --ink:#14100A;
+  --muted:#7A6E57;
+  --line:#EAE2CE;
+  --brand:#D4AF37;          /* gold */
+  --brand-2:#0B0B08;        /* black */
+  --on-brand:#241A04;
+  --accent:#F3E3B3;         /* light gold accent */
+  --accent-2:#B8932A;
+  --on-accent:#241A04;
+  --tint:rgba(212,175,55,.10);
+  --tint-2:rgba(212,175,55,.20);
   --sale:#D92D20;
   --ok:#0E9F6E;
   --warn:#B45309;
   --star:#F5B301;
-  --hero-grad:radial-gradient(1200px 600px at 85% -10%, rgba(109,158,240,.35) 0%, rgba(10,31,68,0) 55%),linear-gradient(118deg,#06152E 0%,#0A1F44 55%,#0E2A5C 100%);
-  --hero-ink:#FFFFFF;
-  --hero-muted:rgba(255,255,255,.78);
-  --ring:rgba(10,31,68,.35);
-  --shadow-1:0 2px 6px rgba(9,24,52,.06),0 1px 2px rgba(9,24,52,.05);
-  --shadow-2:0 10px 30px -8px rgba(9,24,52,.16);
-  --shadow-3:0 24px 60px -12px rgba(6,21,46,.28);
+  --hero-grad:radial-gradient(1200px 600px at 85% -10%, rgba(212,175,55,.32) 0%, rgba(20,14,4,0) 55%),linear-gradient(118deg,#0A0906 0%,#151006 55%,#2E2407 100%);
+  --hero-ink:#FBF4E0;
+  --hero-muted:rgba(251,244,224,.78);
+  --ring:rgba(212,175,55,.45);
+  --shadow-1:0 2px 6px rgba(28,20,6,.07),0 1px 2px rgba(28,20,6,.05);
+  --shadow-2:0 10px 30px -8px rgba(28,20,6,.18);
+  --shadow-3:0 24px 60px -12px rgba(11,11,8,.3);
   --radius:14px;
   --radius-sm:9px;
   --radius-lg:22px;
@@ -140,8 +140,7 @@ h3{font-size:1.22rem}
 h4{font-size:1.02rem}
 p{margin:0 0 1em}
 ul{padding:0;margin:0;list-style:none}
-svg{display:block}
-::selection{background:var(--brand);color:#fff}
+svg{display:block}  ::selection{background:var(--brand);color:var(--on-brand)}
 :focus-visible{outline:2px solid var(--ring);outline-offset:2px;border-radius:4px}
 
 .page-wrap{max-width:var(--page-max);margin:0 auto;padding:0 22px}
@@ -192,8 +191,10 @@ small{font-size:.86em}
   width:42px;height:42px;border-radius:50%;color:var(--ink);
   transition:background .18s ease,transform .15s ease;
 }
-.icon-btn:hover{background:var(--tint)}
-.icon-btn .ic{width:21px;height:21px}
+.icon-btn:hover{background:var(--tint)}  .icon-btn .ic{width:21px;height:21px}
+  svg.ic{width:1em;height:1em;vertical-align:-.125em;flex:none}
+  [data-ic]{display:inline-flex;align-items:center;gap:.38em;vertical-align:-.1em}
+  [data-ic] .ic{display:block}
 .icon-btn .badge{
   position:absolute;top:-2px;right:-2px;min-width:18px;height:18px;padding:0 4px;
   border-radius:20px;background:var(--brand);color:var(--on-brand);
@@ -202,6 +203,41 @@ small{font-size:.86em}
 }
 .badge-pop{animation:pop .4s ease}
 @keyframes pop{40%{transform:scale(1.35)}}
+
+/* ---------- Animated icons (subtle, disabled via prefers-reduced-motion) ---------- */
+.icon-btn .ic{transition:transform .2s ease}
+.icon-btn:active .ic{transform:scale(.86)}
+/* search: playful wiggle on hover */
+.icon-btn[data-action=search]:hover .ic{animation:icWiggle .5s ease}
+/* cart bag: shake on hover and whenever items are added */
+.cart-btn:hover .ic{animation:icShake .55s ease}
+.cart-btn.nudge .ic{animation:icShake .55s ease}
+/* wishlist heart: beat on hover and whenever an item is saved */
+.icon-btn[href="wishlist.html"]:hover .ic{animation:icBeat .65s ease}
+.icon-btn[href="wishlist.html"].pulse .ic{animation:icBeat .65s ease}
+/* burger <-> close morph pop */
+.burger .ic{transition:transform .25s ease}
+.burger:hover .ic{transform:scale(1.12) rotate(-6deg)}
+.burger.open .ic{animation:icSwap .3s cubic-bezier(.2,.8,.2,1)}
+/* logo mark lift + glow */
+.brand .mark{transition:transform .25s ease,box-shadow .25s ease}
+.brand:hover .mark{transform:translateY(-2px) rotate(-3deg);box-shadow:0 10px 24px -8px var(--brand)}
+.brand .mark .ic{transition:transform .3s ease}
+.brand:hover .mark .ic{transform:scale(1.08) rotate(4deg)}
+/* mega-menu link icons slide with the link */
+.mega .links a .ic{transition:transform .18s ease}
+.mega .links a:hover .ic{transform:translateX(2px)}
+/* footer socials pop */
+.soc .ic{transition:transform .2s ease}
+.soc:hover .ic{animation:icPop .35s ease}
+/* toast icon pops in with the toast */
+.toast .t-ic{animation:icPop .35s cubic-bezier(.2,.8,.2,1)}
+
+@keyframes icWiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-14deg) scale(1.1)}55%{transform:rotate(10deg)}80%{transform:rotate(-5deg)}}
+@keyframes icShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-3px)}40%{transform:translateX(3px)}60%{transform:translateX(-2px)}80%{transform:translateX(2px)}}
+@keyframes icBeat{0%,100%{transform:scale(1)}25%{transform:scale(1.28)}45%{transform:scale(.96)}65%{transform:scale(1.14)}}
+@keyframes icSwap{0%{transform:rotate(-90deg) scale(.55);opacity:0}100%{transform:rotate(0) scale(1);opacity:1}}
+@keyframes icPop{0%{transform:scale(.6)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
 
 /* ---------- chips & badges ---------- */
 .chip{
@@ -264,7 +300,13 @@ a.chip:hover{box-shadow:inset 0 0 0 1.5px var(--brand);transform:translateY(-1px
   background:color-mix(in srgb,var(--page-bg) 92%,transparent);
   -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
-  transition:background .4s ease,border-color .4s ease;
+  box-shadow:0 0 0 rgba(0,0,0,0);
+  transition:background .4s ease,border-color .4s ease,box-shadow .3s ease;
+}
+.site-header.scrolled{
+  background:var(--page-bg);
+  border-bottom-color:var(--line);
+  box-shadow:0 16px 36px -22px rgba(0,0,0,.55);
 }
 .nav-row{display:flex;align-items:center;gap:18px;height:72px}
 .brand{display:flex;align-items:center;gap:11px;flex:none}
@@ -432,8 +474,7 @@ a.chip:hover{box-shadow:inset 0 0 0 1.5px var(--brand);transform:translateY(-1px
 body[data-theme="rock"] .hero .cta-row .btn,body[data-theme="savage"] .hero .cta-row .btn{background:#fff}
 
 /* ---------- Feature strip ---------- */
-.feat-strip{background:var(--brand-2);color:#fff}
-body[data-theme="navy"] .feat-strip{background:#06152E}
+.feat-strip{background:var(--brand-2);color:#fff}  body[data-theme="navy"] .feat-strip{background:#0B0B08}
 .feat-strip .page-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:20px 22px}
 .feat-strip .feat{display:flex;gap:13px;align-items:center;padding:6px 8px}
 .feat-strip .f-ic{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;flex:none}
@@ -689,8 +730,7 @@ body[data-theme="navy"] .feat-strip{background:#06152E}
 .banner .kicker{font-family:var(--font-head);font-weight:800;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
 .banner h2{margin:0 0 10px;color:#fff;font-size:clamp(1.5rem,2.6vw,2.3rem)}
 .banner p{color:rgba(255,255,255,.8);margin:0 0 22px}
-.banner-2cols{display:grid;grid-template-columns:1.25fr .75fr;gap:20px}
-.banner .btn{background:#fff;color:#0A1F44}
+.banner-2cols{display:grid;grid-template-columns:1.25fr .75fr;gap:20px}  .banner .btn{background:#fff;color:#0B0B08}
 .banner .btn:hover{filter:none;background:#F0F4FB}
 @media(max-width:860px){.banner-2cols{grid-template-columns:1fr}.banner .bn-in{padding:32px 28px}}
 

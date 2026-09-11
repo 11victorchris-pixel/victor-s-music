@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — pages-product.js
+   VIC MUSICAL STORE — pages-product.js
    Product detail page (product.html?id=…).
    ========================================================================== */
 (function () {
@@ -105,7 +105,7 @@
   function descFor(p) {
     var typeName = VM.typeName(p.t);
     var lines = [
-      'The ' + p.b + ' ' + VM.esc(p.n.replace(p.b, '').trim()) + ' is one of the most requested ' + typeName.toLowerCase() + ' in the Victor\u2019s Music catalogue. Every unit is inspected, tested and set up by our in-store technicians before dispatch, so it arrives ready to play, record or perform.',
+      'The ' + p.b + ' ' + VM.esc(p.n.replace(p.b, '').trim()) + ' is one of the most requested ' + typeName.toLowerCase() + ' in the Vic Musical Store catalogue. Every unit is inspected, tested and set up by our in-store technicians before dispatch, so it arrives ready to play, record or perform.',
       'Depending on your setup, pair it with compatible accessories from the store, or take advantage of the \u201CFrequently Bought Together\u201D bundle below to save an extra 10% on essentials.'
     ];
     return lines;
@@ -151,7 +151,7 @@
   function fillPage(p) {
     var wrap = VM.$('#pdWrap');
     if (!wrap) return;
-    document.title = p.n + ' | Victor\u2019s Music';
+    document.title = p.n + ' | Vic Musical Store';
 
     /* crumbs */
     var crumbs = VM.$('#pdCrumbs');
@@ -190,7 +190,7 @@
       '<span class="tag tag-' + p.v + '">' + VM.esc((VM.VIBE_NAMES[p.v] || '').toUpperCase()) + '</span>' +
       (pct >= 5 ? '<span class="tag tag-sale">' + pct + '% OFF</span>' : '') +
       (p.tg && p.tg.indexOf('new') !== -1 ? '<span class="tag tag-new">New</span>' : '') +
-      (p.tg && p.tg.indexOf('best') !== -1 ? '<span class="tag tag-best">\u{1F525} Best Seller</span>' : '') +
+      (p.tg && p.tg.indexOf('best') !== -1 ? '<span class="tag tag-best">' + VM.icon('flame') + ' Best Seller</span>' : '') +
       '</div>' +
       '<h1>' + VM.esc(p.n) + '</h1>' +
       '<div class="pc-meta">' + VM.starsHtml(p.r, 16) +

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — responsive.css
+   JOHN MAJOR — responsive.css
    Mobile-first hardening layer loaded AFTER style.css + components.css.
    Fixes genuinely weak spots on touch devices, small phones and tablets:
 
@@ -161,4 +161,120 @@ a,button,.icon-btn{-webkit-tap-highlight-color:transparent}
   .drawer-head{padding:10px 16px}
   .search-layer{padding-top:4vh}
   .modal{max-height:92vh}
+}
+
+/* ==========================================================================
+   FULL-DEVICE HARDENING (phones, foldables, tablets, touch, landscape)
+   Loaded last, so these rules win on equal specificity.
+   ========================================================================== */
+
+/* ---------- Global media safety: nothing may force horizontal scroll ---------- */
+img{max-width:100%}
+body{overflow-x:hidden}
+
+/* ---------- Standard store pattern: 2-column product grid on phones ---------- */
+@media (max-width:640px){
+  .prod-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .pc-body{padding:10px 11px 12px;gap:5px}
+  .pc-brand{font-size:.64rem}
+  .pc-name{font-size:.8rem;min-height:2.5em}
+  .pc-meta{font-size:.7rem}
+  .pc-price{font-size:.98rem}
+  .pc-was{display:none} /* keep the -% badge, drop duplicated strikethrough */
+  .pc-off{font-size:.66rem}
+  .pc-foot .btn{padding:10px 6px;font-size:.76rem}
+  .pc-act{width:34px;height:34px}
+  .prod-row-card img{width:72px;height:72px}
+}
+/* Foldables & ultra-narrow (Galaxy Fold ~280px): back to one column */
+@media (max-width:340px){
+  .prod-grid{grid-template-columns:1fr}
+  .h-scroll .prod-card{width:78vw}
+  .hero h1{font-size:2.1rem}
+  .sr-item .p{display:none}
+}
+
+/* ---------- Hero stats: tidy 2x2 on phones ---------- */
+@media (max-width:560px){
+  .hero .stats{display:grid;grid-template-columns:1fr 1fr;gap:18px 12px}
+  .hero .stats .num{font-size:1.3rem}
+}
+
+/* ---------- Deal bands stack cleanly on tablets/phones ---------- */
+@media (max-width:720px){
+  .deal-band{flex-direction:column;align-items:flex-start}
+  .deal-band .btn{align-self:stretch;text-align:center}
+  .deal-band .big-emoji{font-size:2.2rem}
+}
+@media (max-width:400px){
+  .countdown{flex-wrap:wrap;gap:6px}
+}
+
+/* ---------- Shop toolbar: sort never overflows ---------- */
+@media (max-width:480px){
+  .shop-toolbar{gap:10px;padding:12px 13px}
+  .shop-toolbar .sort{flex:1 1 100%}
+  .shop-toolbar select{width:100%}
+  .shop-toolbar .res{flex:1}
+}
+
+/* ---------- Account / admin rows (new pages) ---------- */
+.ck-order-item{flex-wrap:wrap}
+.ck-order-item .btn{margin-left:auto}
+.ck-success .order-id{max-width:100%;word-break:break-all}
+@media (max-width:480px){
+  .ck-order-item img{width:46px;height:46px}
+  .ck-order-item .oi-p{width:100%;text-align:right}
+}
+
+/* ---------- Toasts: full-width above the home indicator ---------- */
+@media (max-width:480px){
+  .toasts{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom))}
+  .toast{width:100%}
+}
+
+/* ---------- Touch devices: 44px targets, no hover traps ---------- */
+@media (hover:none),(pointer:coarse){
+  .icon-btn{min-width:44px;min-height:44px}
+  .pc-act{width:40px;height:40px}
+  .snav-btn{width:44px;height:44px}
+  .qty button{width:40px;height:40px}
+  .qty button .ic{width:14px;height:14px}
+  .modal-x{width:44px;height:44px}
+  .pd-thumbs button{min-width:72px;min-height:72px}
+  .prod-card:hover{transform:none;box-shadow:none}
+  .prod-card:hover .pc-img{transform:none}
+  .pill-filter button,.anchor-nav a{padding:11px 18px} /* easier chip taps */
+}
+
+/* ---------- Notched phones: drawers, modals, footer respect safe areas ---------- */
+.drawer{height:100%;height:100dvh;padding-bottom:env(safe-area-inset-bottom)}
+@media (max-width:480px){
+  .modal-scrim{padding:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+  .modal{max-height:92vh;max-height:92dvh}
+  .footer-bottom{padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+}
+
+/* ---------- Landscape phones & short tablets ---------- */
+@media (max-height:520px) and (orientation:landscape){
+  .hero .grid{padding:34px 0 44px;gap:24px}
+  .hero-img{aspect-ratio:16/8}
+  .page-hero{padding:28px 0 32px}
+  .section{padding:30px 0}
+  .drawer-foot{padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+  .ck-success{padding:24px 10px}
+  .ck-success .big-ic{width:72px;height:72px;margin-bottom:14px}
+  .ck-success .big-ic .ic{width:34px;height:34px}
+}
+
+/* ---------- Tablets portrait: keep detail/toolbar airy ---------- */
+@media (min-width:641px) and (max-width:900px){
+  .prod-grid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+  .pd-actions .btn{min-width:150px}
+}
+
+/* ---------- Large desktops: use the extra width, stay centred ---------- */
+@media (min-width:1400px){
+  .hero .grid{padding:96px 0 110px}
+  .section{padding:76px 0}
 }

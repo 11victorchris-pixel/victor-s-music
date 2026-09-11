@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — layout.js
+   VIC MUSICAL STORE — layout.js
    Renders chrome (topbar, header, footer, overlays) and wires global UI:
    nav, dropdowns, mobile menu, search overlay, cart drawer, newsletter.
    ========================================================================== */
@@ -29,9 +29,9 @@
 
   /* ---------- brand ---------- */
   function brandHtml(footer) {
-    return '<a class="brand" href="index.html" aria-label="Victor\u2019s Music home">' +
+    return '<a class="brand" href="index.html" aria-label="Vic Musical Store home">' +
       '<span class="mark">' + VM.icon('logo') + '</span>' +
-      '<span class="name">VICTOR\u2019S MUSIC<span>One Store \u00B7 Many Vibes \u00B7 Endless Sound</span></span></a>';
+      '<span class="name">VIC MUSICAL STORE<span>One Store \u00B7 Many Vibes \u00B7 Endless Sound</span></span></a>';
   }
 
   /* ---------- header ---------- */
@@ -45,7 +45,7 @@
       return '<a href="' + vibeHref(v) + '"><span class="vibe-dot dot-' + v.key + '"></span>' + v.title + '</a>';
     }).join('');
     var types = VM.TYPES.map(function (t) {
-      return '<a href="' + typeHref(t) + '"><span class="em">' + t.em + '</span>' + t.name + '</a>';
+      return '<a href="' + typeHref(t) + '"><span class="em">' + VM.icon(t.ic) + '</span>' + t.name + '</a>';
     }).join('');
 
     return '<div class="page-wrap nav-row">' + brandHtml() +
@@ -65,6 +65,7 @@
       '</nav>' +
       '<div class="nav-cta">' +
       '<button class="icon-btn" data-action="search" aria-label="Search products">' + VM.icon('search') + '</button>' +
+      '<a class="icon-btn" href="account.html" aria-label="My account" title="My account">' + VM.icon('user') + '</a>' +
       '<a class="icon-btn" href="wishlist.html" aria-label="Wishlist">' + VM.icon('heart') +
       '<span class="badge wish-badge" style="display:none">0</span></a>' +
       '<a class="icon-btn cart-btn" href="cart.html" data-action="cart" aria-label="Shopping cart">' + VM.icon('bag') +
@@ -100,18 +101,19 @@
       '<li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li>' +
       '<li><a href="new-arrivals.html">New Arrivals</a></li><li><a href="best-sellers.html">Best Sellers</a></li>' +
       '<li><a href="sales.html">Sales</a></li><li><a href="about.html">About Us</a></li>' +
-      '<li><a href="contact.html">Contact</a></li><li><a href="wishlist.html">My Wishlist</a></li></ul></div>' +
+      '<li><a href="contact.html">Contact</a></li><li><a href="wishlist.html">My Wishlist</a></li>' +
+      '<li><a href="account.html">My Account</a></li><li><a href="admin.html">Admin</a></li></ul></div>' +
       '<div class="footer-col"><h4>Shop by Instrument</h4><ul>' + types + '</ul></div>' +
       '<div class="footer-col"><h4>Get In Touch</h4><ul class="footer-contact">' +
       '<li>' + VM.icon('pin') + '<span>22 Rhythm Avenue, Ikeja,<br>Lagos, Nigeria</span></li>' +
       '<li>' + VM.icon('phone') + '<a href="tel:+2348012345678">+234 801 234 5678</a></li>' +
-      '<li>' + VM.icon('mail') + '<a href="mailto:hello@victorsmusic.ng">hello@victorsmusic.ng</a></li>' +
+      '<li>' + VM.icon('mail') + '<a href="mailto:hello@vicmusical.ng">hello@vicmusical.ng</a></li>' +
       '<li>' + VM.icon('clock') + '<span>Mon &ndash; Sat: 9am &ndash; 8pm</span></li></ul>' +
       '<div class="footer-news"><b>Stay in the rhythm</b><p>New arrivals, deals &amp; gear tips. No spam.</p>' +
       '<form class="news-form" novalidate><input type="email" placeholder="Enter your email" required aria-label="Email address">' +
       '<button type="submit">SUBSCRIBE</button></form></div></div></div>' +
       '<div class="footer-bottom"><div class="page-wrap">' +
-      '<span>\u00A9 2026 Victor\u2019s Music. All Rights Reserved.</span>' +
+      '<span>\u00A9 2026 Vic Musical Store. All Rights Reserved.</span>' +
       '<span class="foot-links"><a href="policy.html?p=privacy">Privacy Policy</a> &nbsp;\u00B7&nbsp; <a href="policy.html?p=terms">Terms &amp; Conditions</a> &nbsp;\u00B7&nbsp; <a href="policy.html?p=returns">Returns Policy</a></span>' +
       '<span class="pay"><span>VISA</span><span>MASTERCARD</span><span>VERVE</span><span>PAYSTACK</span><span>BANK TRANSFER</span></span>' +
       '</div></div>';
@@ -123,13 +125,13 @@
       return '<a href="' + vibeHref(v) + '"><span class="vibe-dot dot-' + v.key + '"></span>' + v.title + '</a>';
     }).join('');
     var types = VM.TYPES.map(function (t) {
-      return '<a href="' + typeHref(t) + '">' + t.em + ' ' + t.name + '</a>';
+      return '<a href="' + typeHref(t) + '">' + VM.icon(t.ic) + ' ' + t.name + '</a>';
     }).join('');
     return '<div class="mobile-nav" id="vmMobileNav" aria-hidden="true">' +
       '<div class="scrim" data-close="menu"></div>' +
       '<div class="panel" role="dialog" aria-label="Menu">' +
       '<div class="panel-head"><a class="brand" href="index.html"><span class="mark">' + VM.icon('logo') + '</span>' +
-      '<span class="name">VICTOR\u2019S MUSIC<span>Menu</span></span></a>' +
+      '<span class="name">VIC MUSICAL STORE<span>Menu</span></span></a>' +
       '<button class="icon-btn" data-close="menu" aria-label="Close menu">' + VM.icon('x') + '</button></div>' +
       '<div class="panel-body">' +
       '<a class="row-link" href="index.html">Home</a><a class="row-link" href="shop.html">Shop All</a>' +
@@ -138,6 +140,7 @@
       '<div class="group-title">Music Vibes</div><div class="mini">' + vibes + '</div>' +
       '<div class="group-title">Instruments</div><div class="mini">' + types + '</div>' +
       '<div class="group-title">Store</div>' +
+      '<a class="row-link" href="account.html">My Account</a><a class="row-link" href="admin.html">Admin</a>' +
       '<a class="row-link" href="wishlist.html">My Wishlist</a><a class="row-link" href="cart.html">Cart</a>' +
       '<a class="row-link" href="about.html">About Us</a><a class="row-link" href="contact.html">Contact</a>' +
       '</div>' +
@@ -276,6 +279,7 @@
   };
 
   /* ---------- header refresh ---------- */
+  var lastCartN = -1, lastWishN = -1;
   VM.refreshHeader = function () {
     var cb = VM.$('.cart-badge');
     var n = VM.cart.count();
@@ -288,8 +292,33 @@
     var wb = VM.$('.wish-badge');
     var wn = VM.wishData.length;
     if (wb) { wb.textContent = wn; wb.style.display = wn ? 'flex' : 'none'; }
+    /* micro-feedback: shake the bag when items are added, beat the heart when something is saved */
+    var cartBtn = VM.$('.cart-btn');
+    if (cartBtn && n > lastCartN && lastCartN >= 0) {
+      cartBtn.classList.remove('nudge');
+      void cartBtn.offsetWidth;
+      cartBtn.classList.add('nudge');
+    }
+    lastCartN = n;
+    var wishBtn = VM.$('.icon-btn[href="wishlist.html"]');
+    if (wishBtn && wn > lastWishN && lastWishN >= 0) {
+      wishBtn.classList.remove('pulse');
+      void wishBtn.offsetWidth;
+      wishBtn.classList.add('pulse');
+    }
+    lastWishN = wn;
     if (VM.$('#vmCartBody')) VM.renderCartDrawer();
   };
+
+  /* ---------- burger <-> close morph ---------- */
+  function setBurger(open) {
+    var b = VM.$('.burger');
+    if (!b) return;
+    b.classList.toggle('open', open);
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    b.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    b.innerHTML = VM.icon(open ? 'x' : 'menu');
+  }
 
   /* ---------- open / close ---------- */
   function lockBody(on) {
@@ -297,6 +326,7 @@
   }
   function closeAll() {
     VM.$$('.mobile-nav.open, .search-layer.open, .drawer.open, .drawer-scrim.open').forEach(function (el) { el.classList.remove('open'); });
+    setBurger(false);
     lockBody(false);
   }
   VM.closeAll = closeAll;
@@ -328,7 +358,17 @@
         var act = actEl.getAttribute('data-action');
         if (act === 'search') { e.preventDefault(); VM.openSearch(); return; }
         if (act === 'cart') { e.preventDefault(); VM.openCart(); return; }
-        if (act === 'menu') { e.preventDefault(); var m = VM.$('#vmMobileNav'); if (m) { closeAll(); m.classList.add('open'); lockBody(true); } return; }
+        if (act === 'menu') {
+          e.preventDefault();
+          var m = VM.$('#vmMobileNav');
+          if (m) {
+            closeAll();
+            m.classList.add('open');
+            lockBody(true);
+            setBurger(true);
+          }
+          return;
+        }
         var close = actEl.getAttribute('data-close');
         if (close) {
           e.preventDefault();
@@ -394,7 +434,7 @@
     VM.$$('form.search-form').forEach(function (f) {
       f.addEventListener('submit', function (e) { e.preventDefault(); submitSearch(); });
     });
-    /* newsletter (footer + any page) */
+    /* newsletter (footer + any page) — saves to backend when online */
     VM.$$('.news-form').forEach(function (f) {
       f.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -404,11 +444,19 @@
           VM.toast('Check your email', 'Please enter a valid email address.', 'err');
           return;
         }
-        var list = VM.store.get('vm_news_v1', []);
-        if (list.indexOf(v) === -1) list.push(v);
-        VM.store.set('vm_news_v1', list);
-        inp.value = '';
-        VM.toast('You\u2019re in the rhythm!', 'Welcome to the Victor\u2019s Music newsletter \u{1F3B6}', 'ok');
+        function done() {
+          var list = VM.store.get('vm_news_v1', []);
+          if (list.indexOf(v) === -1) list.push(v);
+          VM.store.set('vm_news_v1', list);
+          inp.value = '';
+          VM.toast('You\u2019re in the rhythm!', 'Welcome to the Vic Musical Store newsletter', 'ok');
+        }
+        if (VM.api && VM.api.online !== false) {
+          VM.api.newsletter(v).then(done).catch(function (err) {
+            if (/already/i.test(err.message)) done();
+            else VM.toast('Could not subscribe', err.message, 'err');
+          });
+        } else { done(); }
       });
     });
   }
@@ -425,6 +473,11 @@
     var ov = VM.$('#vmOverlays');
     if (ov) ov.innerHTML = mobileMenuHtml() + cartDrawerHtml() + searchHtml();
 
+    /* inject SVG icons into static [data-ic] placeholders (emoji-free markup) */
+    VM.$$('[data-ic]').forEach(function (el) {
+      el.innerHTML = VM.icon(el.getAttribute('data-ic'));
+    });
+
     /* dropdown parent links should not navigate */
     VM.$$('.has-dd > a').forEach(function (a) {
       a.addEventListener('click', function (e) { e.preventDefault(); });
@@ -432,5 +485,14 @@
     wireGlobals();
     VM.cart.on(function () { VM.refreshHeader(); });
     VM.refreshHeader();
+
+    /* sticky header: elevate with a shadow once the page scrolls */
+    var hdr = VM.$('.site-header');
+    function syncHeader() {
+      if (!hdr) return;
+      hdr.classList.toggle('scrolled', (window.pageYOffset || document.documentElement.scrollTop) > 6);
+    }
+    window.addEventListener('scroll', syncHeader, { passive: true });
+    syncHeader();
   };
 })();

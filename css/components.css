@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — components.css
+   JOHN MAJOR — components.css
    Shop, filters, product detail, cart, checkout, reviews, misc pages, nav responsive.
    ========================================================================== */
 
@@ -313,8 +313,7 @@ hr.soft{border:0;border-top:1px solid var(--line);margin:22px 0}
 .vibe-hero .page-wrap{position:relative;z-index:2}
 .vibe-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(600px 300px at 90% 0%,rgba(255,255,255,.05),transparent 60%);pointer-events:none}
 
-/* skip link & focus */
-.skip-link{position:absolute;left:-999px;top:0;background:#fff;color:#06152E;padding:10px 16px;z-index:300;border-radius:0 0 10px 0;font-weight:700}
+/* skip link & focus */  .skip-link{position:absolute;left:-999px;top:0;background:#fff;color:#0B0B08;padding:10px 16px;z-index:300;border-radius:0 0 10px 0;font-weight:700}
 .skip-link:focus{left:0}
 
 @media print{

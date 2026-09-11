@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — core.js
+   VIC MUSICAL STORE — core.js
    Shared helpers: icons, formatting, storage, cart & wishlist, toasts,
    generated product cover fallbacks, theme switching.
    ========================================================================== */
@@ -75,7 +75,30 @@
     ig: '<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/>',
     tt: '<path fill="currentColor" d="M16.6 3c.4 2 1.6 3.4 3.4 3.6v2.6c-1.3 0-2.5-.4-3.4-1v6.6a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v2.7a3.3 3.3 0 1 0 2.4 3.2V3h2.6z"/>',
     xico: '<path fill="currentColor" d="M17.5 3h3l-6.7 7.7L21.8 21h-6.2l-4.8-6.3L5.3 21h-3l7.2-8.2L2.5 3h6.3l4.4 5.8L17.5 3zm-1 16h1.7L7.6 4.7H5.8L16.5 19z"/>',
-    yt: '<rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M10.2 9.5v5l4.6-2.5-4.6-2.5z"/>'
+    yt: '<rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M10.2 9.5v5l4.6-2.5-4.6-2.5z"/>',
+    /* category & vibe icons */
+    guitar: '<circle cx="9" cy="15" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 12l7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M17.5 8.5L20 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    drum: '<circle cx="12" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 10h16" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 18l-1.5 3M16 18l1.5 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    piano: '<rect x="3" y="5" width="18" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 10v7M12 10v7M16.5 10v7" fill="none" stroke="currentColor" stroke-width="2"/>',
+    mic: '<rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 17.5V21M9 21h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    speaker: '<rect x="7" y="3" width="10" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12.5" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="6.2" r=".9" fill="currentColor"/>',
+    headphones: '<path d="M4 14.5v-1.5a8 8 0 0 1 16 0v1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="13.5" width="4.5" height="7" rx="2" fill="currentColor"/><rect x="16.5" y="13.5" width="4.5" height="7" rx="2" fill="currentColor"/>',
+    sliders: '<path d="M4 7h8M17 7h3M4 17h3M12 17h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="14.5" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9.5" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="2"/>',
+    plug: '<path d="M8.5 3v4M15.5 3v4M6.5 7h11v3a5.5 5.5 0 0 1-11 0V7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 15.5V21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    crown: '<path d="M4 8l3.5 3.5L12 5l4.5 6.5L20 8l-1.8 9.5a1.5 1.5 0 0 1-1.5 1.5H7.3a1.5 1.5 0 0 1-1.5-1.5L4 8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+    rock: '<path d="M12 3l2.6 5.9 6.4.5-4.8 4.2 1.4 6.2L12 16.3 6.4 19.8l1.4-6.2L3 9.4l6.4-.5L12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+    palette: '<path d="M12 3a9 9 0 1 0 0 18c1.3 0 2.2-.9 2.2-2.1 0-.6-.2-1-.5-1.4-.3-.4-.5-.8-.5-1.3 0-1.1.9-2 2-2H17a4.3 4.3 0 0 0 4.3-4.3C21.3 6.7 17.2 3 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7.6" cy="10.4" r="1" fill="currentColor"/><circle cx="12" cy="7.6" r="1" fill="currentColor"/><circle cx="16.4" cy="10.4" r="1" fill="currentColor"/>',
+    target: '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/>',
+    chat: '<path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4 8.9 8.9 0 0 1-4-.9L3 21l1.9-5.1a8.3 8.3 0 0 1-1.4-4.4A8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+    map: '<path d="M9 4L4 6v14l5-2 6 2 5-2V4l-5 2-6-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 4v14M15 6v14" fill="none" stroke="currentColor" stroke-width="2"/>',
+    gift: '<rect x="4" y="9.5" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 9.5v11M4 14.5h16" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 9.5C12 6 8.5 4.5 7 6c-1.4 1.4.3 3.5 5 3.5zM12 9.5c0-3.5 3.5-5 5-3.5 1.4 1.4-.3 3.5-5 3.5z" fill="currentColor"/>',
+    card: '<rect x="2.5" y="5" width="19" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 10h19M6 15h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    bank: '<path d="M3 9l9-5 9 5v2H3V9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M5.5 11v6M9.5 11v6M14.5 11v6M18.5 11v6M3.5 20h17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    lock: '<rect x="5" y="10.5" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor"/>',
+    receipt: '<path d="M6 3h12v18l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21V3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8h6M9 12h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    doc: '<path d="M6.5 3h7L18 7.5v13.5H6.5V3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13.5 3v4.5H18M9.5 12h5M9.5 15.5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    chevL: '<path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/>',
+    dot: '<circle cx="12" cy="12" r="8" fill="currentColor"/>'
   };
   VM.icon = function (name, cls) {
     var s = IC[name] || IC.music;
@@ -176,17 +199,17 @@
     premium: ['#3a3117', '#0d0c09'], rock: ['#7a1505', '#140b0d'], savage: ['#0f4d05', '#0a120b'],
     creative: ['#5b0d99', '#7c1d8f'], professional: ['#0f3d91', '#0a2149'], energetic: ['#b35500', '#201205']
   };
-  VM.TYPE_EMOJI = { guitars: '\u{1F3B8}', drums: '\u{1F941}', keyboards: '\u{1F3B9}', microphones: '\u{1F3A4}', speakers: '\u{1F50A}', headphones: '\u{1F3A7}', studio: '\u{1F39B}\uFE0F', accessories: '\u{1F50C}' };
+  VM.TYPE_INIT = { guitars: 'G', drums: 'D', keyboards: 'K', microphones: 'M', speakers: 'S', headphones: 'H', studio: 'S', accessories: 'A' };
   VM.coverDataUri = function (p) {
-    var g = VM.VIBE_GRADS[p.v] || ['#0A1F44', '#06152E'];
-    var em = VM.TYPE_EMOJI[p.t] || '\u{1F3B5}';
+    var g = VM.VIBE_GRADS[p.v] || ['#2E2610', '#0B0B08'];
+    var ch = VM.TYPE_INIT[p.t] || 'J';
     var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="720" height="660">' +
       '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="' + g[0] + '"/><stop offset="1" stop-color="' + g[1] + '"/></linearGradient></defs>' +
       '<rect width="720" height="660" fill="url(#g)"/>' +
-      '<circle cx="360" cy="330" r="200" fill="rgba(255,255,255,.08)"/>' +
-      '<circle cx="360" cy="330" r="150" fill="rgba(255,255,255,.07)"/>' +
-      '<circle cx="360" cy="330" r="98" fill="rgba(255,255,255,.10)"/>' +
-      '<text x="360" y="392" font-size="150" text-anchor="middle">' + em + '</text></svg>';
+      '<circle cx="360" cy="330" r="210" fill="rgba(255,255,255,.05)"/>' +
+      '<circle cx="360" cy="330" r="158" fill="rgba(255,255,255,.06)"/>' +
+      '<circle cx="360" cy="330" r="104" fill="none" stroke="rgba(212,175,55,.5)" stroke-width="3"/>' +
+      '<text x="360" y="408" font-family="Georgia, serif" font-size="250" font-weight="700" fill="#E7C766" text-anchor="middle">' + ch + '</text></svg>';
     return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
   };
   VM.imgSrc = function (p) {

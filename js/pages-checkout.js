@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — pages-checkout.js
+   VIC MUSICAL STORE — pages-checkout.js
    Demo checkout — NO real payment is processed or claimed.
    ========================================================================== */
 (function () {
@@ -60,25 +60,56 @@
       var original = btn.innerHTML;
       btn.disabled = true;
       btn.innerHTML = VM.icon('bolt') + ' PROCESSING\u2026';
-      setTimeout(function () {
-        var name = (VM.$('#cfName') ? VM.$('#cfName').value : 'Valued Customer').trim();
-        var orderNo = 'VM-' + Date.now().toString(36).toUpperCase() + '-' + Math.floor(1000 + Math.random() * 9000);
+
+      var payTab = VM.$('.pay-tab.on');
+      var payload = {
+        customer: {
+          name: (VM.$('#cfName') || {}).value || '',
+          email: (VM.$('#cfEmail') || {}).value || '',
+          phone: (VM.$('#cfPhone') || {}).value || '',
+          address: (VM.$('#cfAddr') || {}).value || '',
+          city: (VM.$('#cfCity') || {}).value || '',
+          state: (VM.$('#cfState') || {}).value || '',
+          country: (VM.$('#cfCountry') || {}).value || 'Nigeria',
+        },
+        payment: payTab ? payTab.getAttribute('data-pay') : 'card',
+        items: VM.cart.lines().map(function (l) { return { id: l.p.id, qty: l.q }; }),
+      };
+
+      function showSuccess(orderNo, live) {
         VM.cart.clear();
         main.innerHTML = '<div class="ck-success panel" style="max-width:640px;margin:0 auto">' +
           '<div class="big-ic">' + VM.icon('check') + '</div>' +
-          '<h2>Order Confirmed \u{1F389}</h2>' +
-          '<p>Thank you for shopping with Victor\u2019s Music.</p>' +
-          '<div class="order-id">' + orderNo + '</div>' +
-          '<div class="demo-note" style="text-align:left;max-width:420px;margin:0 auto 20px">' + VM.icon('info') +
-          '<span><b>Demo checkout notice:</b> no payment was charged. This is a school/demo project \u2014 a real payment gateway is not connected. Your order details were recorded locally only.</span></div>' +
-          '<p>A confirmation email would normally be sent to <b>' + VM.esc(name) + '</b>. Our team will call to confirm delivery within 24 hours.</p>' +
+          '<h2>Order Confirmed</h2>' +
+          '<p>Thank you for shopping with Vic Musical Store.</p>' +
+          '<div class="order-id">' + VM.esc(orderNo) + '</div>' +
+          (live
+            ? '<div class="demo-note" style="text-align:left;max-width:420px;margin:0 auto 20px;border-color:var(--ok)">' + VM.icon('check') +
+              '<span><b>Saved to our system.</b> Track it any time on the <a href="account.html">My Account</a> page.</span></div>'
+            : '<div class="demo-note" style="text-align:left;max-width:420px;margin:0 auto 20px">' + VM.icon('info') +
+              '<span><b>Offline demo order:</b> the backend was unreachable, so this order was recorded locally only.</span></div>') +
+          '<p>A confirmation email would normally be sent to <b>' + VM.esc(payload.customer.name) + '</b>. Our team will call to confirm delivery within 24 hours.</p>' +
           '<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">' +
           '<a class="btn" href="shop.html">Continue Shopping</a>' +
-          '<a class="btn btn-ghost" href="index.html">Back to Home</a></div></div>';
+          '<a class="btn btn-ghost" href="account.html">Track Order</a></div></div>';
         window.scrollTo({ top: 0, behavior: 'smooth' });
         btn.disabled = false;
         btn.innerHTML = original;
-      }, 1400);
+      }
+
+      if (VM.api) {
+        VM.api.createOrder(payload).then(function (r) {
+          showSuccess(r.number, true);
+        }).catch(function (err) {
+          VM.toast('Checkout problem', err.message, 'err');
+          btn.disabled = false;
+          btn.innerHTML = original;
+        });
+      } else {
+        setTimeout(function () {
+          showSuccess('VM-' + Date.now().toString(36).toUpperCase(), false);
+        }, 800);
+      }
     });
   };
 })();

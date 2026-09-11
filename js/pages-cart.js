@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VICTOR'S MUSIC — pages-cart.js
+   VIC MUSICAL STORE — pages-cart.js
    Full cart page (cart.html) and wishlist page (wishlist.html).
    ========================================================================== */
 (function () {
